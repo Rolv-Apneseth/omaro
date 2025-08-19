@@ -1,0 +1,54 @@
+default_mode = "hottest"
+
+[ui.borders]
+enable = true
+fg = "magenta"
+
+[ui.header]
+enable_ascii_header = false
+enable_border_header = true
+text_border_header = "Omaro"
+fg_border_header = "white"
+
+[ui.scrollbar]
+enable = false
+
+[ui.score_count]
+enable = false
+fg_positive = "yellow"
+fg_negative = "red"
+icon_positive = ''
+icon_negative = ''
+
+[ui.comment_count]
+enable = false
+fg = "darkgray"
+icon = "󰅺"
+
+[ui.submitted_elapsed]
+enable = false
+fg = "darkgray"
+icon = "󰥔"
+
+[ui.submitted_user]
+enable = false
+fg = "darkgray"
+icon = "󰀄"
+
+[ui.shortcuts]
+enable = true
+fg = "magenta"
+icon_left = ""
+icon_right = ""
+
+[ui.downloaded]
+enable = true
+fg = "gray"
+icon = "󰇚"
+
+[ui.keybind_hints]
+enable = false
+
+[ui.mode_info]
+enable = true
+fg = "gray"

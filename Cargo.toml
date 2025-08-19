@@ -1,0 +1,51 @@
+[package]
+name = "omaro"
+version = "0.1.0"
+edition = "2024"
+repository = "https://github.com/rolv-apneseth/omaro"
+homepage = "https://github.com/rolv-apneseth/omaro"
+authors = ["Rolv Apneseth <rolv [dot] apneseth [at] gmail [dot] com>"]
+rust-version = "1.88"
+license = "AGPL-3.0"
+
+[dependencies]
+# Terminal
+crossterm = "0.29"
+ratatui = { version = "0.29", features = ["serde"] }
+clap = { version = "4.5.45", features = ["derive", "env"] }
+textwrap = "0.16"
+is-terminal = "0.4"
+
+# Fetching
+reqwest = { version = "0.12", features = ["blocking", "json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+
+# Custom panics
+anstyle = "1.0"
+anstream = "0.6"
+os_info = "3.12"
+backtrace = "0.3"
+uuid = { version = "1.17", features = ["v4"] }
+
+# Database
+rusqlite = { version = "0.37", features = [
+  "bundled",
+  "rusqlite-macros",
+  "extra_check",
+] }
+rusqlite_migration = { version = "2.3", features = ["from-directory"] }
+include_dir = "0.7.4"
+r2d2_sqlite = { version = "0.31" }
+r2d2 = { version = "0.8" }
+
+# Misc
+color-eyre = { version = "0.6" }
+toml = { version = "0.9", features = ["serde"] }
+open = "5.3"
+hashbrown = "0.15"
+chrono = { version = "0.4", features = ["serde"] }
+dirs = "6.0"
+
+[dev-dependencies]
+pretty_assertions = "1.4"

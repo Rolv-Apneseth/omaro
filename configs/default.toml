@@ -1,0 +1,90 @@
+# Possible modes: hottest | newest | active
+default_mode = "hottest"
+
+# Borders around the TUI, and around popups
+[ui.borders]
+enable = true
+fg = "magenta"
+
+[ui.header]
+# Header in the top border of the UI - more minimal than the full ascii header
+enable_border_header = false
+text_border_header = "Omaro"
+fg_border_header = "white"
+
+enable_ascii_header = true
+fg_ascii_header = "white"
+text_ascii_header = """
+ ██████╗ ███╗   ███╗ █████╗ ██████╗  ██████╗
+██╔═══██╗████╗ ████║██╔══██╗██╔══██╗██╔═══██╗
+██║   ██║██╔████╔██║███████║██████╔╝██║   ██║
+██║   ██║██║╚██╔╝██║██╔══██║██╔══██╗██║   ██║
+╚██████╔╝██║ ╚═╝ ██║██║  ██║██║  ██║╚██████╔╝
+ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝"""
+# Additional ASCII header examples:
+#
+# ▛▌▛▛▌▀▌▛▘▛▌
+# ▙▌▌▌▌█▌▌ ▙▌
+# ┏┓┏┳┓┏┓┏┓┏┓
+# ┗┛┛┗┗┗┻┛ ┗┛
+#  ░███████  ░█████████████   ░██████   ░██░████  ░███████
+# ░██    ░██ ░██   ░██   ░██       ░██  ░███     ░██    ░██
+# ░██    ░██ ░██   ░██   ░██  ░███████  ░██      ░██    ░██
+# ░██    ░██ ░██   ░██   ░██ ░██   ░██  ░██      ░██    ░██
+#  ░███████  ░██   ░██   ░██  ░█████░██ ░██       ░███████
+
+# Scrollbar for the posts
+[ui.scrollbar]
+enable = false
+fg_thumb = "gray"
+
+# Post score - also relevant for the details popups
+[ui.score_count]
+enable = true
+fg_positive = "yellow"
+fg_negative = "red"
+icon_positive = ''
+icon_negative = ''
+
+# Post comment count - also relevant for the details popup
+[ui.comment_count]
+enable = true
+fg = "darkgray"
+icon = "󰅺"
+
+# Time since post was submitted - also relevant for the details popups
+[ui.submitted_elapsed]
+enable = true
+fg = "darkgray"
+icon = "󰥔"
+
+# User which submitted the post - also relevant for the details popups
+[ui.submitted_user]
+enable = true
+fg = "darkgray"
+icon = "󰀄"
+
+# Shortcuts to open posts - also relevant
+[ui.shortcuts]
+enable = true
+fg = "magenta"
+icon_left = ""
+icon_right = ""
+
+# Bytes downloaded from lobste.rs
+[ui.downloaded]
+enable = true
+fg = "gray"
+icon = "󰇚"
+
+# Hints shown at the bottom right - just the essentials
+[ui.keybind_hints]
+enable = true
+fg = "gray"
+icon_left = ""
+icon_right = ""
+
+# Information about the mode and page currently being viewed
+[ui.mode_info]
+enable = true
+fg = "gray"

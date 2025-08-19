@@ -1,0 +1,4 @@
+INSERT
+INTO posts (id)
+VALUES (?)
+ON CONFLICT (id) DO NOTHING
