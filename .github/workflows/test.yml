@@ -1,0 +1,37 @@
+name: Test
+
+on:
+    workflow_dispatch:
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
+
+env:
+    CARGO_TERM_COLOR: always
+
+jobs:
+    check:
+        strategy:
+          matrix:
+            os: [ubuntu-latest, windows-latest, macos-latest]
+        runs-on: ${{ matrix.os }}
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Install stable Rust toolchain
+              run: rustup toolchain install stable --profile minimal
+
+            - name: Cache dependencies
+              uses: Swatinem/rust-cache@v2
+
+            - name: Check
+              run: cargo check
+
+            - name: Build
+              run: cargo build --verbose
+
+            - name: Test
+              run: cargo test --verbose
+
