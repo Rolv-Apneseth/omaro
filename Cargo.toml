@@ -1,7 +1,7 @@
 [package]
 name = "omaro"
 description = "TUI for lobste.rs. Browse posts and comments from the comfort of your terminal"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 repository = "https://github.com/rolv-apneseth/omaro"
 homepage = "https://github.com/rolv-apneseth/omaro"

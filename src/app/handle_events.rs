@@ -56,6 +56,7 @@ impl App {
             KeyCode::Char('K') => {
                 if !self.posts.is_empty() {
                     self.load_post_comments(tx_details)?;
+                    self.comments_list_state.select(Some(0));
                     self.show_details_popup = !self.show_details_popup;
                 }
             }
@@ -126,7 +127,6 @@ impl App {
 
         // Close popup when any (other) keybind is pressed
         self.show_keybinds_popup = false;
-        // self.show_details_popup = false;
 
         Ok(())
     }
@@ -177,6 +177,7 @@ impl App {
                             if !self.posts.is_empty() {
                                 self.load_post_comments(tx_details)?;
                                 self.show_details_popup = !self.show_details_popup;
+                                self.comments_list_state.select(Some(0));
                             }
                         }
                         MouseButton::Middle => self.open_post_comments()?,
