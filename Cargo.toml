@@ -5,9 +5,12 @@ version = "0.1.2"
 edition = "2024"
 repository = "https://github.com/rolv-apneseth/omaro"
 homepage = "https://github.com/rolv-apneseth/omaro"
-authors = ["Rolv Apneseth <rolv [dot] apneseth [at] gmail [dot] com>"]
+authors = ["Rolv Apneseth <rolv.apneseth@gmail.com>"]
 rust-version = "1.88"
 license = "AGPL-3.0"
+include = ["/src"]
+keywords = ["lobste.rs", "lobsters", "TUI", "command-line", "ratatui"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 # Terminal
