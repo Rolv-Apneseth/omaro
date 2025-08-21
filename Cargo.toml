@@ -1,7 +1,7 @@
 [package]
 name = "omaro"
 description = "TUI for lobste.rs. Browse posts and comments from the comfort of your terminal"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 repository = "https://github.com/rolv-apneseth/omaro"
 homepage = "https://github.com/rolv-apneseth/omaro"
@@ -11,17 +11,27 @@ license = "AGPL-3.0"
 
 [dependencies]
 # Terminal
-crossterm = "0.29"
-ratatui = { version = "0.29", features = ["serde"] }
-clap = { version = "4.5.45", features = ["derive", "env"] }
-textwrap = "0.16"
-is-terminal = "0.4"
+crossterm = "0.29" # Terminal backend
+ratatui = { version = "0.29", features = ["serde"] } # TUI framework
+clap = { version = "4.5.45", features = [
+  "derive",
+  "env",
+] } # Parse CLI arguments
+textwrap = "0.16" # Text wrapping, primarily in the details popup
 
-# Fetching
-reqwest = { version = "0.12", features = ["blocking", "json"] }
+# Fetch data
+reqwest = { version = "0.12", default-features = false, features = [
+  "default-tls",
+  "blocking",
+  "json",
+] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = { version = "1.0" }
+chrono = { version = "0.4", features = [
+  "serde",
+] } # Parse, display and manipulate datetime values
 
+color-eyre = { version = "0.6" } # Custom panics + errors
 # Custom panics
 anstyle = "1.0"
 anstream = "0.6"
@@ -40,13 +50,14 @@ include_dir = "0.7.4"
 r2d2_sqlite = { version = "0.31" }
 r2d2 = { version = "0.8" }
 
-# Misc
-color-eyre = { version = "0.6" }
-toml = { version = "0.9", features = ["serde"] }
-open = "5.3"
-hashbrown = "0.15"
-chrono = { version = "0.4", features = ["serde"] }
-dirs = "6.0"
+dirs = "6.0"                                     # Get user-specific directory paths
+toml = { version = "0.9", features = ["serde"] } # Parse configuration file
+open = "5.3"                                     # Open links using the user's default browser
 
 [dev-dependencies]
 pretty_assertions = "1.4"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1

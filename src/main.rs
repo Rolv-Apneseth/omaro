@@ -1,11 +1,10 @@
-use std::{io::stdout, process::{self}};
+use std::{io::{IsTerminal, stdout}, process::{self}};
 
 use clap::Parser;
 use cli::Args;
 use color_eyre::Result;
 use config::get_config;
 use database::init_db;
-use is_terminal::IsTerminal;
 
 mod app;
 mod cli;

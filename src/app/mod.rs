@@ -6,10 +6,9 @@ mod handle_posts;
 mod navigate;
 mod run;
 
-use std::{sync::{Arc, atomic::{AtomicBool, AtomicU32}}, time::Duration};
+use std::{collections::HashMap, sync::{Arc, atomic::{AtomicBool, AtomicU32}}, time::Duration};
 
 use color_eyre::Result;
-use hashbrown::HashMap;
 use ratatui::widgets::{ListState, ScrollbarState};
 use reqwest::blocking::{Client, ClientBuilder};
 
