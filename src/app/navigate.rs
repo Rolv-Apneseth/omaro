@@ -96,6 +96,8 @@ impl App {
             if !self.load_page(prev_page, page) {
                 self.load_posts(tx)?;
             };
+
+            self.first_row();
         }
         Ok(())
     }
@@ -107,6 +109,8 @@ impl App {
             if !self.load_page(prev_page, page) {
                 self.load_posts(tx)?;
             };
+
+            self.first_row();
         }
         Ok(())
     }
