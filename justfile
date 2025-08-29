@@ -8,6 +8,7 @@ alias rc := run-config
 alias rC := run-clean
 alias g := gif
 alias dg := develop-gif
+alias p := publish
 
 # COMMANDS -----------------------------------------------------------------------------------------
 
@@ -56,3 +57,7 @@ gif:
 # Re-generate the demo GIF whenever `demo.tape` is modified
 develop-gif:
     echo assets/demo.tape | entr vhs /_ --output assets/demo.gif
+
+# Publish
+publish: test
+    cargo publish
