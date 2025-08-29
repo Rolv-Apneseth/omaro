@@ -1,7 +1,7 @@
 [package]
 name = "omaro"
 description = "TUI for lobste.rs. Browse posts and comments from the comfort of your terminal"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2024"
 repository = "https://github.com/rolv-apneseth/omaro"
 homepage = "https://github.com/rolv-apneseth/omaro"
@@ -9,7 +9,7 @@ authors = ["Rolv Apneseth <rolv.apneseth@gmail.com>"]
 rust-version = "1.88"
 license = "AGPL-3.0"
 include = ["/src"]
-keywords = ["lobste.rs", "lobsters", "TUI", "command-line", "ratatui"]
+keywords = ["lobsters", "TUI", "command-line", "ratatui"]
 categories = ["command-line-utilities"]
 
 [dependencies]

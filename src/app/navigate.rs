@@ -116,6 +116,7 @@ impl App {
     }
 
     pub(super) fn next_mode(&mut self, tx: &Sender<Mode>) -> Result<()> {
+        self.first_row();
         self.store_mode();
         self.mode.next_mode();
 
@@ -126,6 +127,7 @@ impl App {
         Ok(())
     }
     pub(super) fn prev_mode(&mut self, tx: &Sender<Mode>) -> Result<()> {
+        self.first_row();
         self.store_mode();
         self.mode.prev_mode();
 
