@@ -7,6 +7,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/License-AGPL_v3-green.svg" alt="License: AGPL v3" />
   <img src="https://img.shields.io/github/v/tag/rolv-apneseth/omaro?label=version&color=blueviolet" alt="version" />
+  <a href="https://crates.io/crates/omaro"><img alt="Crates.io Version" src="https://img.shields.io/crates/v/omaro"></a>
   <a href="https://aur.archlinux.org/packages/omaro"><img src="https://img.shields.io/aur/version/omaro" alt="AUR version" /></a>
   <a href="https://lobste.rs"><img src="https://img.shields.io/badge/lobste.rs-orange" alt="lobste.rs" /></a>
 </p>
