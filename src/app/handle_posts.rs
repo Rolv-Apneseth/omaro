@@ -74,7 +74,16 @@ impl App {
             "trying to open post out of bounds"
         );
 
-        open::that_detached(&self.posts[index].url).context("failed to launch link opener")?;
+        let Some(post) = self.current_post() else {
+            return Ok(());
+        };
+
+        if post.url.is_empty() {
+            self.open_post_comments()?;
+        } else {
+            open::that_detached(&post.url).context("failed to launch link opener")?;
+        };
+
         self.mark_post_read(index, tx)
     }
 
