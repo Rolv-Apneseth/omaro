@@ -34,7 +34,7 @@ chrono = { version = "0.4", features = [
   "serde",
 ] } # Parse, display and manipulate datetime values
 
-color-eyre = { version = "0.6" } # Custom panics + errors
+color-eyre = { version = "0.6", default-features = false } # Custom panics + errors
 # Custom panics
 anstyle = "1.0"
 anstream = "0.6"
