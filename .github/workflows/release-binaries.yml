@@ -25,15 +25,20 @@ jobs:
   upload-binaries:
     name: ${{ matrix.target }}
     if: github.repository_owner == 'rolv-apneseth'
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         include:
           - target: aarch64-unknown-linux-gnu
+            os: ubuntu-latest
           - target: x86_64-unknown-linux-gnu
+            os: ubuntu-latest
           - target: aarch64-apple-darwin
+            os: macos-latest
           - target: aarch64-pc-windows-msvc
+            os: windows-latest
           - target: x86_64-pc-windows-msvc
+            os: windows-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -44,7 +49,7 @@ jobs:
           target: ${{ matrix.target }}
       - uses: taiki-e/upload-rust-binary-action@v1
         with:
-          bin: clipvault
+          bin: omaro
           target: ${{ matrix.target }}
           tar: all
           token: ${{ secrets.GITHUB_TOKEN }}
