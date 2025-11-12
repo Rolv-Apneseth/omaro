@@ -1,0 +1,50 @@
+name: CD - binaries # Build binaries
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+env:
+  CARGO_INCREMENTAL: 0
+  CARGO_NET_GIT_FETCH_WITH_CLI: true
+  CARGO_NET_RETRY: 10
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+  RUSTFLAGS: -D warnings
+  RUSTUP_MAX_RETRIES: 10
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  upload-binaries:
+    name: ${{ matrix.target }}
+    if: github.repository_owner == 'rolv-apneseth'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - target: aarch64-unknown-linux-gnu
+          - target: x86_64-unknown-linux-gnu
+          - target: aarch64-apple-darwin
+          - target: aarch64-pc-windows-msvc
+          - target: x86_64-pc-windows-msvc
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - uses: taiki-e/setup-cross-toolchain-action@v1
+        with:
+          target: ${{ matrix.target }}
+      - uses: taiki-e/upload-rust-binary-action@v1
+        with:
+          bin: clipvault
+          target: ${{ matrix.target }}
+          tar: all
+          token: ${{ secrets.GITHUB_TOKEN }}
