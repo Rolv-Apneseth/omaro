@@ -56,23 +56,20 @@ by replacing the icons used. More details below in the configuration section.
 
 ## Installation
 
-### Cargo
-
 ```bash
 cargo install omaro --locked
+```
+
+Or, directly from source:
+
+```bash
+cargo install --git https://github.com/rolv-apneseth/omaro --locked
 ```
 
 ### AUR
 
 ```bash
 paru -S omaro
-```
-
-### Manual / Build from source
-
-```bash
-git clone https://github.com/Rolv-Apneseth/omaro.git
-cargo install --path ./omaro --locked
 ```
 
 ## Configuration
