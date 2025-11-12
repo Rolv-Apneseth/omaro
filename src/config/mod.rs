@@ -16,12 +16,31 @@ pub static DEFAULT_CONFIG_PATH: LazyLock<PathBuf> = LazyLock::new(|| {
         .join("config.toml")
 });
 
-#[derive(Debug, Default, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Deserialize, PartialEq, Eq)]
 pub struct Config {
     #[serde(default)]
     pub default_mode: Mode,
+    #[serde(default = "_default_true")]
+    pub opening_comments_marks_posts_read: bool,
+    #[serde(default = "_default_true")]
+    pub previewing_comments_marks_posts_read: bool,
 
     pub ui: UiConfig,
+}
+
+fn _default_true() -> bool {
+    true
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Self {
+            default_mode: Default::default(),
+            ui: UiConfig::default(),
+            opening_comments_marks_posts_read: true,
+            previewing_comments_marks_posts_read: true,
+        }
+    }
 }
 
 #[derive(Debug, Deserialize, Default, PartialEq, Eq)]

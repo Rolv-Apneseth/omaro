@@ -58,28 +58,35 @@ impl App {
             .context("load posts channel is closed")
     }
 
-    pub(super) fn load_post_comments(&self, tx: &Sender<String>) -> Result<()> {
-        let Some(post) = self.current_post() else {
+    pub(super) fn load_post_comments(
+        &mut self,
+        index: usize,
+        tx_details: &Sender<String>,
+        tx_db: &Sender<DatabaseAction>,
+    ) -> Result<()> {
+        if self.config.previewing_comments_marks_posts_read {
+            self.mark_post_read(index, tx_db)
+                .context("failed to mark post as read")?;
+        }
+
+        let Some(post) = self.posts.get(index) else {
             return Ok(());
         };
 
         self.is_loading_comments.store(true, Ordering::Relaxed);
         let url = post.short_id_url.clone();
-        tx.send(url).context("load post details channel is closed")
+        tx_details
+            .send(url)
+            .context("load post details channel is closed")
     }
 
     pub(super) fn open_post(&mut self, index: usize, tx: &Sender<DatabaseAction>) -> Result<()> {
-        assert!(
-            index < self.posts.len(),
-            "trying to open post out of bounds"
-        );
-
-        let Some(post) = self.current_post() else {
+        let Some(post) = self.posts.get(index) else {
             return Ok(());
         };
 
         if post.url.is_empty() {
-            self.open_post_comments()?;
+            self.open_post_comments(index, tx)?;
         } else {
             open::that_detached(&post.url).context("failed to launch link opener")?;
         };
@@ -92,14 +99,17 @@ impl App {
         index: usize,
         tx: &Sender<DatabaseAction>,
     ) -> Result<()> {
-        assert!(
-            index < self.posts.len(),
-            "trying to open post out of bounds"
-        );
+        let Some(post) = self.posts.get_mut(index) else {
+            return Ok(());
+        };
+
+        // Already marked as read
+        if post.is_read {
+            return Ok(());
+        }
 
         // Mark read straight away - DB status will only matter the next time the
         // program is launched
-        let post = &mut self.posts[index];
         post.is_read = true;
 
         tx.send(DatabaseAction::MarkPostRead(post.short_id.clone()))
@@ -125,9 +135,20 @@ impl App {
             .context("mark post read channel is closed")
     }
 
-    pub(super) fn open_post_comments(&mut self) -> Result<()> {
-        if let Some(post) = self.current_post() {
-            open::that_detached(&post.comments_url).context("failed to launch link opener")?;
+    pub(super) fn open_post_comments(
+        &mut self,
+        index: usize,
+        tx: &Sender<DatabaseAction>,
+    ) -> Result<()> {
+        let Some(post) = self.posts.get(index) else {
+            return Ok(());
+        };
+
+        open::that_detached(&post.comments_url).context("failed to launch link opener")?;
+
+        if self.config.opening_comments_marks_posts_read {
+            self.mark_post_read(index, tx)
+                .context("failed to mark post as read")?;
         }
 
         Ok(())

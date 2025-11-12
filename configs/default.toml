@@ -1,5 +1,9 @@
 # Possible modes: hottest | newest | active
 default_mode = "hottest"
+# If true, opening the link for a post's comments will mark the post as read
+opening_comments_marks_posts_read = true
+# If true, previewing the comments for a post will mark the post as read
+previewing_comments_marks_posts_read = true
 
 # Borders around the TUI, and around popups
 [ui.borders]

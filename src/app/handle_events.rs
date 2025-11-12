@@ -54,11 +54,15 @@ impl App {
                 return Ok(());
             }
             KeyCode::Char('K') => {
-                if !self.posts.is_empty() {
-                    self.load_post_comments(tx_details)?;
-                    self.comments_list_state.select(Some(0));
+                if let Some(index) = self.posts_list_state.selected()
+                    && !self.posts.is_empty()
+                {
                     self.show_details_popup = !self.show_details_popup;
-                }
+                    if self.show_details_popup {
+                        self.load_post_comments(index, tx_details, tx_db)?;
+                        self.comments_list_state.select(Some(0));
+                    }
+                };
             }
 
             // FUNCTIONALITY
@@ -70,7 +74,9 @@ impl App {
                 }
             }
             KeyCode::Char('c') => {
-                self.open_post_comments()?;
+                if let Some(selected) = self.posts_list_state.selected() {
+                    self.open_post_comments(selected, tx_db)?;
+                }
             }
 
             KeyCode::Char('r') => {
@@ -86,7 +92,11 @@ impl App {
 
             KeyCode::Char('R') | KeyCode::F(5) => {
                 if self.show_details_popup {
-                    self.load_post_comments(tx_details)?;
+                    let index = self
+                        .posts_list_state
+                        .selected()
+                        .expect("in details popup - relevant post should be selected");
+                    self.load_post_comments(index, tx_details, tx_db)?;
                 } else {
                     self.load_posts(tx_posts)?;
                 }
@@ -174,13 +184,17 @@ impl App {
                             }
                         }
                         MouseButton::Right => {
-                            if !self.posts.is_empty() {
-                                self.load_post_comments(tx_details)?;
+                            if let Some(index) = self.posts_list_state.selected()
+                                && !self.posts.is_empty()
+                            {
                                 self.show_details_popup = !self.show_details_popup;
-                                self.comments_list_state.select(Some(0));
-                            }
+                                if self.show_details_popup {
+                                    self.load_post_comments(index, tx_details, tx_db)?;
+                                    self.comments_list_state.select(Some(0));
+                                }
+                            };
                         }
-                        MouseButton::Middle => self.open_post_comments()?,
+                        MouseButton::Middle => self.open_post_comments(i, tx_db)?,
                     };
                 }
             }
