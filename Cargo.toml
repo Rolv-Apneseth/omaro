@@ -14,13 +14,10 @@ categories = ["command-line-utilities"]
 
 [dependencies]
 # Terminal
-crossterm = "0.29" # Terminal backend
-ratatui = { version = "0.29", features = ["serde"] } # TUI framework
-clap = { version = "4.5.45", features = [
-  "derive",
-  "env",
-] } # Parse CLI arguments
-textwrap = "0.16" # Text wrapping, primarily in the details popup
+crossterm = "0.29"                                       # Terminal backend
+ratatui = { version = "0.29", features = ["serde"] }     # TUI framework
+clap = { version = "4.5", features = ["derive", "env"] } # Parse CLI arguments
+textwrap = "0.16"                                        # Text wrapping, primarily in the details popup
 
 # Fetch data
 reqwest = { version = "0.12", default-features = false, features = [
@@ -49,7 +46,7 @@ rusqlite = { version = "0.37", features = [
   "extra_check",
 ] }
 rusqlite_migration = { version = "2.3", features = ["from-directory"] }
-include_dir = "0.7.4"
+include_dir = "0.7"
 r2d2_sqlite = { version = "0.31" }
 r2d2 = { version = "0.8" }
 
