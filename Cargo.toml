@@ -15,12 +15,12 @@ categories = ["command-line-utilities"]
 [dependencies]
 # Terminal
 crossterm = "0.29"                                       # Terminal backend
-ratatui = { version = "0.29", features = ["serde"] }     # TUI framework
+ratatui = { version = "0.30", features = ["serde"] }     # TUI framework
 clap = { version = "4.5", features = ["derive", "env"] } # Parse CLI arguments
 textwrap = "0.16"                                        # Text wrapping, primarily in the details popup
 
 # Fetch data
-reqwest = { version = "0.12", default-features = false, features = [
+reqwest = { version = "0.13", default-features = false, features = [
   "default-tls",
   "blocking",
   "json",
@@ -34,24 +34,24 @@ chrono = { version = "0.4", features = [
 color-eyre = { version = "0.6", default-features = false } # Custom panics + errors
 # Custom panics
 anstyle = "1.0"
-anstream = "0.6"
+anstream = "1.0"
 os_info = "3.12"
 backtrace = "0.3"
 uuid = { version = "1.17", features = ["v4"] }
 
 # Database
-rusqlite = { version = "0.37", features = [
+rusqlite = { version = "0.38", features = [
   "bundled",
   "rusqlite-macros",
   "extra_check",
 ] }
 rusqlite_migration = { version = "2.3", features = ["from-directory"] }
 include_dir = "0.7"
-r2d2_sqlite = { version = "0.31" }
+r2d2_sqlite = { version = "0.32" }
 r2d2 = { version = "0.8" }
 
 dirs = "6.0"                                     # Get user-specific directory paths
-toml = { version = "0.9", features = ["serde"] } # Parse configuration file
+toml = { version = "1.0", features = ["serde"] } # Parse configuration file
 open = "5.3"                                     # Open links using the user's default browser
 
 [dev-dependencies]
