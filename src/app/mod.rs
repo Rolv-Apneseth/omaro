@@ -6,13 +6,34 @@ mod handle_posts;
 mod navigate;
 mod run;
 
-use std::{collections::HashMap, sync::{Arc, atomic::{AtomicBool, AtomicU32}}, time::Duration};
+use std::{
+    collections::HashMap,
+    sync::{
+        Arc,
+        atomic::{
+            AtomicBool,
+            AtomicU32,
+        },
+    },
+    time::Duration,
+};
 
 use color_eyre::Result;
-use ratatui::widgets::{ListState, ScrollbarState};
-use reqwest::blocking::{Client, ClientBuilder};
+use ratatui::widgets::{
+    ListState,
+    ScrollbarState,
+};
+use reqwest::blocking::{
+    Client,
+    ClientBuilder,
+};
 
-use crate::{config::Config, data::Post, database::DbPool, modes::Mode};
+use crate::{
+    config::Config,
+    data::Post,
+    database::DbPool,
+    modes::Mode,
+};
 
 pub const TABLE_ROW_HEIGHT: usize = 2;
 

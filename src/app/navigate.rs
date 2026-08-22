@@ -2,7 +2,10 @@ use std::sync::mpsc::Sender;
 
 use color_eyre::Result;
 
-use super::{App, TABLE_ROW_HEIGHT};
+use super::{
+    App,
+    TABLE_ROW_HEIGHT,
+};
 use crate::modes::Mode;
 
 impl App {

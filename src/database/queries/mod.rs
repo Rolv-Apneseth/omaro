@@ -1,5 +1,11 @@
-use color_eyre::{Result, eyre::Context};
-use rusqlite::{Connection, params};
+use color_eyre::{
+    Result,
+    eyre::Context,
+};
+use rusqlite::{
+    Connection,
+    params,
+};
 
 use crate::data::Post;
 
