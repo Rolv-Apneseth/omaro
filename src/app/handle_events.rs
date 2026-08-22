@@ -124,16 +124,14 @@ impl App {
                 self.previous_row();
             }
 
-            KeyCode::Char('h') | KeyCode::Left | KeyCode::PageUp => {
-                if !self.show_details_popup {
-                    self.previous_page(tx_posts)?
-                }
+            KeyCode::Char('h') | KeyCode::Left | KeyCode::PageUp if !self.show_details_popup => {
+                self.previous_page(tx_posts)?
             }
-            KeyCode::Char('l') | KeyCode::Right | KeyCode::PageDown => {
-                if !self.show_details_popup {
-                    self.next_page(tx_posts)?
-                }
+            KeyCode::Char('h') | KeyCode::Left | KeyCode::PageUp => {}
+            KeyCode::Char('l') | KeyCode::Right | KeyCode::PageDown if !self.show_details_popup => {
+                self.next_page(tx_posts)?
             }
+            KeyCode::Char('l') | KeyCode::Right | KeyCode::PageDown => {}
 
             KeyCode::Char('g') | KeyCode::Home => self.first_row(),
             KeyCode::Char('G') | KeyCode::End => self.last_row(),
