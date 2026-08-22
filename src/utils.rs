@@ -1,7 +1,12 @@
 use std::borrow::Cow;
 
 use chrono::Duration;
-use ratatui::layout::{Constraint, Flex, Layout, Rect};
+use ratatui::layout::{
+    Constraint,
+    Flex,
+    Layout,
+    Rect,
+};
 
 /// Returns the given duration as a human-readable string representation.
 pub fn human_duration(duration: chrono::Duration) -> String {

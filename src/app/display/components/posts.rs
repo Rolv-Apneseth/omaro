@@ -1,7 +1,33 @@
 use chrono::Utc;
-use ratatui::{Frame, layout::Rect, style::{Color, Style, Stylize}, text::{Line, Span, Text}, widgets::{List, ListItem, ListState}};
+use ratatui::{
+    Frame,
+    layout::Rect,
+    style::{
+        Color,
+        Style,
+        Stylize,
+    },
+    text::{
+        Line,
+        Span,
+        Text,
+    },
+    widgets::{
+        List,
+        ListItem,
+        ListState,
+    },
+};
 
-use crate::{app::handle_events::SHORTCUT_KEYS, config::Config, data::Post, utils::{human_duration, truncate}};
+use crate::{
+    app::handle_events::SHORTCUT_KEYS,
+    config::Config,
+    data::Post,
+    utils::{
+        human_duration,
+        truncate,
+    },
+};
 
 const COLUMN_SPACING: u16 = 1;
 const SHORTCUT_WIDTH: u16 = 5;

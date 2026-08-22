@@ -1,7 +1,17 @@
-use std::{borrow::Cow, fmt::Display, str::FromStr};
+use std::{
+    borrow::Cow,
+    fmt::Display,
+    str::FromStr,
+};
 
-use color_eyre::eyre::{Context, eyre};
-use serde::{Deserialize, Deserializer};
+use color_eyre::eyre::{
+    Context,
+    eyre,
+};
+use serde::{
+    Deserialize,
+    Deserializer,
+};
 
 const URL: &str = "https://lobste.rs";
 // Treat pages as 1-indexed - while 0 works, it gives the same results as 1 so

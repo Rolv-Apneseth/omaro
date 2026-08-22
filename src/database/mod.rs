@@ -1,9 +1,25 @@
-use std::{path::{Path, PathBuf}, sync::LazyLock, time::Duration};
+use std::{
+    path::{
+        Path,
+        PathBuf,
+    },
+    sync::LazyLock,
+    time::Duration,
+};
 
-use color_eyre::{Result, eyre::Context};
+use color_eyre::{
+    Result,
+    eyre::Context,
+};
 use dirs::data_local_dir;
-use include_dir::{Dir, include_dir};
-use r2d2::{Pool, PooledConnection};
+use include_dir::{
+    Dir,
+    include_dir,
+};
+use r2d2::{
+    Pool,
+    PooledConnection,
+};
 use r2d2_sqlite::SqliteConnectionManager;
 use rusqlite::OpenFlags;
 use rusqlite_migration::Migrations;

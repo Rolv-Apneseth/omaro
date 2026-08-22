@@ -2,8 +2,27 @@ mod components;
 
 use std::sync::atomic::Ordering;
 
-use components::{render_container, render_details_popup, render_header, render_keybinds_popup, render_posts, render_scrollbar};
-use ratatui::{Frame, layout::{Constraint::{Length, Max, Min, Percentage}, Layout}, text::Line};
+use components::{
+    render_container,
+    render_details_popup,
+    render_header,
+    render_keybinds_popup,
+    render_posts,
+    render_scrollbar,
+};
+use ratatui::{
+    Frame,
+    layout::{
+        Constraint::{
+            Length,
+            Max,
+            Min,
+            Percentage,
+        },
+        Layout,
+    },
+    text::Line,
+};
 
 use super::App;
 use crate::utils::center_area;

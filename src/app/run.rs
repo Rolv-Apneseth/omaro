@@ -1,12 +1,60 @@
-use std::{panic, sync::{Arc, atomic::{AtomicBool, Ordering}, mpsc::{Receiver, RecvTimeoutError, Sender, channel}}, thread::{self, JoinHandle}, time::Duration};
+use std::{
+    panic,
+    sync::{
+        Arc,
+        atomic::{
+            AtomicBool,
+            Ordering,
+        },
+        mpsc::{
+            Receiver,
+            RecvTimeoutError,
+            Sender,
+            channel,
+        },
+    },
+    thread::{
+        self,
+        JoinHandle,
+    },
+    time::Duration,
+};
 
-use color_eyre::{Result, eyre::Context};
-use crossterm::event::{self, Event};
+use color_eyre::{
+    Result,
+    eyre::Context,
+};
+use crossterm::event::{
+    self,
+    Event,
+};
 use ratatui::DefaultTerminal;
 use reqwest::blocking::Client;
 
-use super::{App, DownloadedBytes, action::{Action, DatabaseAction}, handle_posts::{fetch_post_details, fetch_posts}};
-use crate::{database::{DbPool, get_db_connection, queries::{mark_post_read, mark_post_unread, update_posts}}, modes::Mode};
+use super::{
+    App,
+    DownloadedBytes,
+    action::{
+        Action,
+        DatabaseAction,
+    },
+    handle_posts::{
+        fetch_post_details,
+        fetch_posts,
+    },
+};
+use crate::{
+    database::{
+        DbPool,
+        get_db_connection,
+        queries::{
+            mark_post_read,
+            mark_post_unread,
+            update_posts,
+        },
+    },
+    modes::Mode,
+};
 
 impl App {
     pub fn run(&mut self, terminal: &mut DefaultTerminal) -> Result<()> {

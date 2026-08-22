@@ -1,5 +1,11 @@
-use chrono::{DateTime, FixedOffset};
-use serde::{Deserialize, Deserializer};
+use chrono::{
+    DateTime,
+    FixedOffset,
+};
+use serde::{
+    Deserialize,
+    Deserializer,
+};
 
 fn deserialize_date_from_str<'de, D>(deserializer: D) -> Result<DateTime<FixedOffset>, D::Error>
 where
