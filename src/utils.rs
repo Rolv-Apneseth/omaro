@@ -67,7 +67,7 @@ pub fn truncate(s: &str, max_chars: usize) -> Cow<'_, str> {
 
     match s.char_indices().nth(max_chars.saturating_sub(1)) {
         None => Cow::from(s),
-        Some((idx, _)) => Cow::Owned(format!("{}—", &s[..idx].trim_end())),
+        Some((idx, _)) => Cow::Owned(format!("{}—", s[..idx].trim_end())),
     }
 }
 

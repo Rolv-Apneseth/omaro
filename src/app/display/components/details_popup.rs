@@ -146,15 +146,13 @@ pub fn render_details_popup(
 
             let mut text = Text::from(first_line);
 
-            let mut lines = 1;
-            for l in wrap(comment.comment_plain.trim(), max_width).iter() {
-                if lines >= max_lines {
+            for (index, line) in (1..).zip(wrap(comment.comment_plain.trim(), max_width)) {
+                if index >= max_lines {
                     text.push_line(Line::from(format!("{indented}...")));
                     break;
                 }
 
-                text.push_line(format!("{indented}{}", l.trim().to_owned()));
-                lines += 1;
+                text.push_line(format!("{indented}{}", line.trim().to_owned()));
             }
 
             text.push_line(Line::default());
