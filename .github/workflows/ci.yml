@@ -1,4 +1,4 @@
-name: Check
+name: CI
 
 on:
     workflow_dispatch:
@@ -15,9 +15,9 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
 
-            - name: Install stable Rust toolchain, and nightly rustfmt
+            - name: Install Rust toolchains, and nightly rustfmt
               run: |
                 rustup toolchain install stable --profile minimal
                 rustup component add clippy
@@ -28,13 +28,22 @@ jobs:
               uses: Swatinem/rust-cache@v2
 
             - name: Check
-              run: cargo check
+              run: cargo check --verbose
+
+            - name: Build
+              run: cargo build --verbose
 
             - name: Lint
               run: cargo clippy -- -D warnings
 
             - name: Format
               run: cargo +nightly fmt --check
+
+            - name: Test
+              run: cargo test --verbose
+
+            - name: Docs
+              run: cargo doc --verbose --no-deps
 
             - name: Check if Cargo.lock needs to be updated
               run: cargo update -w --locked
