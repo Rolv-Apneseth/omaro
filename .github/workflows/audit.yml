@@ -10,16 +10,12 @@ on:
       branches: ["main"]
 
 jobs:
-  security_audit:
+  audit_deps:
+    if: ${{ github.repository_owner == 'rolv-apneseth' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: taiki-e/install-action@cargo-audit
-      - uses: taiki-e/install-action@cargo-deny
-
-      - name: Audit
-        run: cargo audit
-
-      - name: Deny
-        run: cargo deny check
+      - uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          command: check
