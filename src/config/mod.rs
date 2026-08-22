@@ -1,6 +1,20 @@
-use std::{fs::read_to_string, path::{Path, PathBuf}, sync::LazyLock};
+use std::{
+    fs::read_to_string,
+    path::{
+        Path,
+        PathBuf,
+    },
+    sync::LazyLock,
+};
 
-use color_eyre::{Result, Section, eyre::{Context, eyre}};
+use color_eyre::{
+    Result,
+    Section,
+    eyre::{
+        Context,
+        eyre,
+    },
+};
 use dirs::config_dir;
 use serde::Deserialize;
 

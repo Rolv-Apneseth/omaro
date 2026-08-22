@@ -1,6 +1,12 @@
-use crossterm::event::{KeyEvent, MouseEvent};
+use crossterm::event::{
+    KeyEvent,
+    MouseEvent,
+};
 
-use crate::data::{Post, PostDetails};
+use crate::data::{
+    Post,
+    PostDetails,
+};
 
 #[derive(Debug)]
 pub enum Action {

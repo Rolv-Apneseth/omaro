@@ -1,8 +1,36 @@
-use std::sync::atomic::{AtomicU32, Ordering};
+use std::sync::atomic::{
+    AtomicU32,
+    Ordering,
+};
 
-use ratatui::{Frame, layout::Rect, style::{Style, Stylize}, text::{Line, Span}, widgets::{Block, BorderType, Borders}};
+use ratatui::{
+    Frame,
+    layout::Rect,
+    style::{
+        Style,
+        Stylize,
+    },
+    text::{
+        Line,
+        Span,
+    },
+    widgets::{
+        Block,
+        BorderType,
+        Borders,
+    },
+};
 
-use crate::{config::{Config, DownloadedConfig, HeaderConfig, KeybindHintsConfig}, modes::Mode, utils::human_bytes};
+use crate::{
+    config::{
+        Config,
+        DownloadedConfig,
+        HeaderConfig,
+        KeybindHintsConfig,
+    },
+    modes::Mode,
+    utils::human_bytes,
+};
 
 fn downloaded(config: &DownloadedConfig, bytes: u32) -> Line<'_> {
     Line::from(format!(" {} {} ", config.icon, human_bytes(bytes)))

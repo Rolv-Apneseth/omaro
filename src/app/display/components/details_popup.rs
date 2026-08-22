@@ -1,8 +1,49 @@
 use chrono::Utc;
-use ratatui::{Frame, layout::{Constraint::{Fill, Length, Percentage}, Layout, Rect}, style::{Style, Stylize}, text::{Line, Span, Text}, widgets::{Block, BorderType, Borders, Cell, Clear, HighlightSpacing, List, ListItem, ListState, Padding, Row, Table}};
+use ratatui::{
+    Frame,
+    layout::{
+        Constraint::{
+            Fill,
+            Length,
+            Percentage,
+        },
+        Layout,
+        Rect,
+    },
+    style::{
+        Style,
+        Stylize,
+    },
+    text::{
+        Line,
+        Span,
+        Text,
+    },
+    widgets::{
+        Block,
+        BorderType,
+        Borders,
+        Cell,
+        Clear,
+        HighlightSpacing,
+        List,
+        ListItem,
+        ListState,
+        Padding,
+        Row,
+        Table,
+    },
+};
 use textwrap::wrap;
 
-use crate::{config::Config, data::Post, utils::{center_area, human_duration}};
+use crate::{
+    config::Config,
+    data::Post,
+    utils::{
+        center_area,
+        human_duration,
+    },
+};
 
 pub fn render_details_popup(
     frame: &mut Frame,

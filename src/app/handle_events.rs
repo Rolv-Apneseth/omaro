@@ -1,9 +1,23 @@
-use std::sync::{atomic::Ordering, mpsc::Sender};
+use std::sync::{
+    atomic::Ordering,
+    mpsc::Sender,
+};
 
 use color_eyre::Result;
-use crossterm::event::{KeyCode, KeyEvent, KeyModifiers, MouseButton, MouseEvent, MouseEventKind};
+use crossterm::event::{
+    KeyCode,
+    KeyEvent,
+    KeyModifiers,
+    MouseButton,
+    MouseEvent,
+    MouseEventKind,
+};
 
-use super::{App, TABLE_ROW_HEIGHT, action::DatabaseAction};
+use super::{
+    App,
+    TABLE_ROW_HEIGHT,
+    action::DatabaseAction,
+};
 use crate::modes::Mode;
 
 // TODO: support custom keybinds?

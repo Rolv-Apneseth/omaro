@@ -1,4 +1,12 @@
-use std::{io::{IsTerminal, stdout}, process::{self}};
+use std::{
+    io::{
+        IsTerminal,
+        stdout,
+    },
+    process::{
+        self,
+    },
+};
 
 use clap::Parser;
 use cli::Args;
@@ -16,7 +24,10 @@ mod panic;
 mod utils;
 
 use app::App;
-use crossterm::{event::EnableMouseCapture, execute};
+use crossterm::{
+    event::EnableMouseCapture,
+    execute,
+};
 
 fn main() -> Result<()> {
     if !stdout().is_terminal() {

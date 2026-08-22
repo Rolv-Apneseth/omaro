@@ -1,6 +1,32 @@
-use ratatui::{Frame, layout::{Constraint::{Fill, Length}, Rect}, style::{Style, Stylize}, widgets::{Block, BorderType, Borders, Cell, Clear, Padding, Row, Table}};
+use ratatui::{
+    Frame,
+    layout::{
+        Constraint::{
+            Fill,
+            Length,
+        },
+        Rect,
+    },
+    style::{
+        Style,
+        Stylize,
+    },
+    widgets::{
+        Block,
+        BorderType,
+        Borders,
+        Cell,
+        Clear,
+        Padding,
+        Row,
+        Table,
+    },
+};
 
-use crate::{config::Config, utils::center_area};
+use crate::{
+    config::Config,
+    utils::center_area,
+};
 
 const PADDING: u16 = 2;
 const SPACING: u16 = 2;

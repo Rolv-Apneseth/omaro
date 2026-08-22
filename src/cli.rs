@@ -2,7 +2,10 @@ use std::path::PathBuf;
 
 use clap::Parser;
 
-use crate::{config::DEFAULT_CONFIG_PATH, database::DEFAULT_DB_PATH};
+use crate::{
+    config::DEFAULT_CONFIG_PATH,
+    database::DEFAULT_DB_PATH,
+};
 
 #[derive(Parser, Debug)]
 #[command(version, about="TUI for the fantastic lobste.rs", long_about = None)]

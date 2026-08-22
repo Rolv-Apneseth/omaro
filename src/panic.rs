@@ -1,6 +1,22 @@
 //! Custom panic hook, derived from the code for the [panic crate](https://github.com/exact-labs/panic).
 
-use std::{borrow::Cow, collections::HashMap, error::Error, fmt::Write as FmtWrite, fs::File, io::{Result as IoResult, Write}, mem, panic::PanicHookInfo, path::{Path, PathBuf}};
+use std::{
+    borrow::Cow,
+    collections::HashMap,
+    error::Error,
+    fmt::Write as FmtWrite,
+    fs::File,
+    io::{
+        Result as IoResult,
+        Write,
+    },
+    mem,
+    panic::PanicHookInfo,
+    path::{
+        Path,
+        PathBuf,
+    },
+};
 
 pub use anstyle::AnsiColor as Color;
 use backtrace::Backtrace;

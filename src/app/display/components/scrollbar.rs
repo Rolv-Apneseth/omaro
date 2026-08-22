@@ -1,4 +1,16 @@
-use ratatui::{Frame, layout::{Margin, Rect}, style::Style, widgets::{Scrollbar, ScrollbarOrientation, ScrollbarState}};
+use ratatui::{
+    Frame,
+    layout::{
+        Margin,
+        Rect,
+    },
+    style::Style,
+    widgets::{
+        Scrollbar,
+        ScrollbarOrientation,
+        ScrollbarState,
+    },
+};
 
 use crate::config::Config;
 

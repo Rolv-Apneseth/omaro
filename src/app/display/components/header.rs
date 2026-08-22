@@ -1,4 +1,9 @@
-use ratatui::{Frame, layout::Rect, style::Stylize, text::Text};
+use ratatui::{
+    Frame,
+    layout::Rect,
+    style::Stylize,
+    text::Text,
+};
 
 use crate::config::Config;
 

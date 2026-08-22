@@ -1,10 +1,27 @@
-use std::sync::{atomic::Ordering, mpsc::Sender};
+use std::sync::{
+    atomic::Ordering,
+    mpsc::Sender,
+};
 
-use color_eyre::{Result, Section, eyre::Context};
+use color_eyre::{
+    Result,
+    Section,
+    eyre::Context,
+};
 use reqwest::blocking::Client;
 
-use super::{App, DownloadedBytes, action::DatabaseAction};
-use crate::{data::{Post, PostDetails}, modes::Mode};
+use super::{
+    App,
+    DownloadedBytes,
+    action::DatabaseAction,
+};
+use crate::{
+    data::{
+        Post,
+        PostDetails,
+    },
+    modes::Mode,
+};
 pub(super) fn fetch_posts(
     client: &Client,
     mode: &Mode,
