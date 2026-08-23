@@ -40,14 +40,14 @@ backtrace = "0.3"
 uuid = { version = "1.17", features = ["v4"] }
 
 # Database
-rusqlite = { version = "0.38", features = [
+rusqlite = { version = "0.40", features = [
   "bundled",
   "rusqlite-macros",
   "extra_check",
 ] }
-rusqlite_migration = { version = "2.3", features = ["from-directory"] }
+rusqlite_migration = { version = "2.6", features = ["from-directory"] }
 include_dir = "0.7"
-r2d2_sqlite = { version = "0.32" }
+r2d2_sqlite = { version = "0.35" }
 r2d2 = { version = "0.8" }
 
 dirs = "6.0"                                     # Get user-specific directory paths
