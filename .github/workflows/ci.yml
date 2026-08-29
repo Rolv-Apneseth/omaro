@@ -10,12 +10,19 @@ on:
 env:
     CARGO_TERM_COLOR: always
 
+permissions: {}
+
 jobs:
     check:
         runs-on: ubuntu-latest
 
+        permissions:
+            contents: read
+
         steps:
             - uses: actions/checkout@v7
+              with:
+                persist-credentials: false
 
             - name: Install Rust toolchains, and nightly rustfmt
               run: |

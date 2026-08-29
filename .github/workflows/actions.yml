@@ -1,0 +1,42 @@
+name: Check actions
+
+on:
+  push:
+    paths:
+      - '.github/**'
+    branches: ["main"]
+  pull_request:
+    paths:
+      - '.github/**'
+    branches: ["main"]
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Check workflow files
+        uses: docker://rhysd/actionlint:latest
+        with:
+          args: -color
+
+  zizmor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@v0.6.2
+        with:
+          min-severity: low
+          advanced-security: false
