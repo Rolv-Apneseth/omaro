@@ -2,7 +2,6 @@ style_edition = "2024"
 group_imports = "StdExternalCrate"
 imports_granularity = "Crate"
 imports_layout = "Vertical"
-merge_imports = true
 newline_style = "Unix"
 reorder_modules = true
 wrap_comments = true

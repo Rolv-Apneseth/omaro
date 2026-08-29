@@ -9,12 +9,18 @@ on:
   pull_request:
       branches: ["main"]
 
+permissions: {}
+
 jobs:
   audit_deps:
     if: ${{ github.repository_owner == 'rolv-apneseth' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - uses: EmbarkStudios/cargo-deny-action@v2
         with:

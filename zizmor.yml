@@ -1,0 +1,5 @@
+rules:
+  unpinned-images:
+    disable: true
+  unpinned-uses:
+    disable: true

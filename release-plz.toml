@@ -36,7 +36,8 @@ body = """
 {%- endmacro -%}
 """
 trim = true
-postprocessors = []
 protect_breaking_commits = true
-sort_commits = "newest"
-commit_preprocessors = [{ pattern = '\((\w+\s)?#([0-9]+)\)', replace = "" }]
+commit_parsers = [
+  { message = "^chore", skip = true },
+  { message = "^ci", skip = true },
+]
