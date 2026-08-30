@@ -35,8 +35,5 @@ external-default-features = "allow"
 [sources]
 unknown-registry = "deny"
 unknown-git = "deny"
-allow-registry = [
-  "https://github.com/rust-lang/crates.io-index",
-  "https://github.com/juhaku/utoipa",
-]
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
 allow-git = []
