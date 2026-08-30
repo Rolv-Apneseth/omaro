@@ -88,7 +88,8 @@ impl App {
     }
 
     pub(super) fn next_page(&mut self, tx: &Sender<Mode>) -> Result<()> {
-        // Wait to load the current posts - or there are no more posts so don't proceed
+        // Wait to load the current posts - or there are no more posts so don't
+        // proceed
         if self.posts.is_empty() {
             return Ok(());
         }

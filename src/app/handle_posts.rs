@@ -125,8 +125,8 @@ impl App {
             return Ok(());
         }
 
-        // Mark read straight away - DB status will only matter the next time the
-        // program is launched
+        // Mark read straight away - DB status will only matter the next time
+        // the program is launched
         post.is_read = true;
 
         tx.send(DatabaseAction::MarkPostRead(post.short_id.clone()))
@@ -143,8 +143,8 @@ impl App {
             "trying to open post out of bounds"
         );
 
-        // Mark unread straight away - DB status will only matter the next time the
-        // program is launched
+        // Mark unread straight away - DB status will only matter the next time
+        // the program is launched
         let post = &mut self.posts[index];
         post.is_read = false;
 

@@ -141,7 +141,8 @@ impl App {
                     Ok(_) => {}
                     Err(e) => {
                         // TODO: replace with combining reports once <https://github.com/eyre-rs/eyre/pull/208> is merged
-                        // For now, simply prioritise errors from the other threads
+                        // For now, simply prioritise errors from the other
+                        // threads
                         res = Err(e);
                     }
                 },
