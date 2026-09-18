@@ -50,7 +50,7 @@ include_dir = "0.7"
 r2d2_sqlite = { version = "0.35" }
 r2d2 = { version = "0.8" }
 
-dirs = "6.0"                                     # Get user-specific directory paths
+dirs = "7.0"                                     # Get user-specific directory paths
 toml = { version = "1.0", features = ["serde"] } # Parse configuration file
 open = "5.3"                                     # Open links using the user's default browser
 
