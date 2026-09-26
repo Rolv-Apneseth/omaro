@@ -55,6 +55,9 @@ jobs:
             - name: Check if Cargo.lock needs to be updated
               run: cargo update -w --locked
 
+            - name: Check for dependency downgrades
+              uses: Garfield1002/cargo-no-downgrades@5adc12fa7e8484939ba064ac4fd4fb5333d8f5de # v1.0.0
+
             - uses: taiki-e/install-action@v2
               with:
                 tool: cargo-msrv
