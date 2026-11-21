@@ -4,7 +4,6 @@ description = "TUI for lobste.rs. Browse posts and comments from the comfort of 
 version = "0.1.6"
 edition = "2024"
 repository = "https://github.com/rolv-apneseth/omaro"
-homepage = "https://github.com/rolv-apneseth/omaro"
 authors = ["Rolv Apneseth <rolv.apneseth@gmail.com>"]
 rust-version = "1.95"
 license = "AGPL-3.0"
